@@ -1,0 +1,119 @@
+	<html>
+	<head>
+	  <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">	  
+		<link rel="stylesheet" type="text/css" href="../assets/styles/style.css" />
+	  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+		<script type="text/javascript"></script>
+		<title>Justin Ewalt</title>
+	</head>
+	<body>
+	  <div id="app">
+	  </div>
+		<script src="https://fb.me/react-0.14.8.js"></script>
+		<script src="https://fb.me/react-dom-0.14.8.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+		<script type='text/babel'>
+
+		  class Home extends React.Component {
+		    constructor(props) {
+		      super(props);
+		      this.state = {Experience: false, Tools: false, Contact: false, About: false};
+		      this.clickedButtons = this.clickedButtons.bind(this);
+		    }
+
+		    clickedButton() {
+		      switch (this.state) {
+		        case Experience:
+		          return(<Experience />)
+		          this.setState = {Experience: true, Tools: false, Contact: false, About: false};
+		        case About:
+		          return(<About />)
+		          this.setState = {Experience: false, Tools: false, Contact: false, About: true};
+		        case Tools:
+		        	return(<Tools />)
+		        	this.setState = {Experience: false, Tools: true, Contact: false, About: false};
+		        case Contact:
+		        	return(<Contact />)
+		        	this.setState = {Experience: false, Tools: false, Contact: true, About: false};
+		      }
+		    }
+
+		    clickedButtons() {
+		    	this.setState = {Experience: true};
+		    	return <Experience />
+		    }
+
+		    render() {
+		       return(
+		        <div>
+		          <h1>Justin Ewalt</h1>
+		          <button onClick={this.clickedButtons} className="topic-buttons" name="button" title="Experience">Experience</button>
+		          <button className="topic-buttons" name="button" title="Tools">Tools</button>
+		          <button className="topic-buttons" name="button" title="Contact">Contact</button>
+		          <button className="topic-buttons" name="button" title="About">About</button>
+		        </div>
+		      );
+		    }
+		  }
+
+		  class About extends React.Component {
+		    constructor(props) {
+		      super(props);
+		    }
+
+		    render() {
+		      return(
+		      	<div>
+		      		<h3>About</h3>
+		      	</div>
+		      )
+		    }
+		  }
+
+		  class Experience extends React.Component {
+		  	constructor(props) {
+		  		super(props);
+		  	}
+
+		  	render() {
+		  		return(
+		  			<div>
+		  				<h3>Experience</h3>
+		  			</div>
+		  		)
+		  	}
+		  }
+
+		  class Tools extends React.Component {
+		  	constructor(props) {
+		  		super(props);
+		  	}
+
+		  	render() {
+		  		return(
+		  			<div>
+		  				<h3>Weapons of Choice</h3>
+		  			</div>
+		  		)
+		  	}
+		  }
+
+		  class Contact extends React.Component {
+		  	constructor(props) {
+		  		super(props);
+		  	}
+
+		  	render() {
+		  		return(
+		  			<div>
+		  				<h3>Contact Methods</h3>
+		  			</div>
+		  		)
+		  	}
+		  }
+
+		  ReactDOM.render(<Home />, document.getElementById('app'));
+		</script>
+	</body>
+</html>
