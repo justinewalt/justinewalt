@@ -24,22 +24,11 @@
 		    }
 
 		    clickedButton(value) {
-		    	debugger
-		      switch (value) {
-		        case 'Experience':
-		          this.setState({active: 'Experience'});
-		        case 'About':
-		          this.setState({active: 'About'});
-		        case 'Tools':
-		        	this.setState({active: 'Tools'});
-		        case 'Contact':
-		        	this.setState({active: 'Contact'});
-		      }
+		  		this.setState({active: value});
 		    }
 
 
 		    child() {
-		    	debugger
 		    	switch (this.state.active) {
 		    	  case 'Experience':
 		    	    return(<Experience />)
@@ -49,8 +38,6 @@
 		    	  	return(<Contact />)
 		    	  case 'About':
 		    	  	return(<About />)
-		    	  default:
-		    	    null
 		    	}
 		    }
 
@@ -91,6 +78,14 @@
 		  		return(
 		  			<div>
 		  				<h3>Experience</h3>
+		  				<br />
+		  				<p>Please check my Linkedin page for my experience, or contact me with questions.</p>
+		  				<p>Thanks!</p>
+		  				<div>
+		  					<ul>
+		  						<a href="https://www.linkedin.com/in/justinewalt" target="_blank"><li>Linkedin</li></a>
+		  					</ul>
+		  				</div>
 		  			</div>
 		  		)
 		  	}
@@ -105,6 +100,19 @@
 		  		return(
 		  			<div>
 		  				<h3>Weapons of Choice</h3>
+		  				<br />
+		  				<ul>
+		  					<li>JavaScript</li>
+		  					<li>ReactJS</li>
+		  					<li>Ruby on Rails</li>
+		  					<li>HTML5</li>
+		  					<li>CSS 3</li>
+		  					<li>GIT</li>
+		  					<li>PostgreSQL</li>
+		  					<li>JQuery</li>
+		  					<li>AJAX</li>
+		  					<li>ES2015</li>
+		  				</ul>
 		  			</div>
 		  		)
 		  	}
@@ -119,6 +127,13 @@
 		  		return(
 		  			<div>
 		  				<h3>Contact</h3>
+		  				<br />
+		  				<p>
+		  				</p>
+	  					<ul>
+	  						<li>Phone: 801-989-2769</li>
+	  						<li>Email: justinewalt@gmail.com</li>
+	  					</ul>
 		  			</div>
 		  		)
 		  	}
