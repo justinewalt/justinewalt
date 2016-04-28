@@ -18,40 +18,51 @@
 		  class Home extends React.Component {
 		    constructor(props) {
 		      super(props);
-		      this.state = {Experience: false, Tools: false, Contact: false, About: false};
-		      this.clickedButtons = this.clickedButtons.bind(this);
+		      this.state = {active: null };
+		      this.child = this.child.bind(this);
+		      this.clickedButton = this.clickedButton.bind(this);
 		    }
 
-		    clickedButton() {
-		      switch (this.state) {
-		        case Experience:
-		          return(<Experience />)
-		          this.setState = {Experience: true, Tools: false, Contact: false, About: false};
-		        case About:
-		          return(<About />)
-		          this.setState = {Experience: false, Tools: false, Contact: false, About: true};
-		        case Tools:
-		        	return(<Tools />)
-		        	this.setState = {Experience: false, Tools: true, Contact: false, About: false};
-		        case Contact:
-		        	return(<Contact />)
-		        	this.setState = {Experience: false, Tools: false, Contact: true, About: false};
+		    clickedButton(value) {
+		    	debugger
+		      switch (value) {
+		        case 'Experience':
+		          this.setState({active: 'Experience'});
+		        case 'About':
+		          this.setState({active: 'About'});
+		        case 'Tools':
+		        	this.setState({active: 'Tools'});
+		        case 'Contact':
+		        	this.setState({active: 'Contact'});
 		      }
 		    }
 
-		    clickedButtons() {
-		    	this.setState = {Experience: true};
-		    	return <Experience />
+
+		    child() {
+		    	debugger
+		    	switch (this.state.active) {
+		    	  case 'Experience':
+		    	    return(<Experience />)
+		    	  case 'Tools':
+		    	  	return(<Tools />)
+		    	  case 'Contact':
+		    	  	return(<Contact />)
+		    	  case 'About':
+		    	  	return(<About />)
+		    	  default:
+		    	    null
+		    	}
 		    }
 
 		    render() {
 		       return(
 		        <div>
 		          <h1>Justin Ewalt</h1>
-		          <button onClick={this.clickedButtons} className="topic-buttons" name="button" title="Experience">Experience</button>
-		          <button className="topic-buttons" name="button" title="Tools">Tools</button>
-		          <button className="topic-buttons" name="button" title="Contact">Contact</button>
-		          <button className="topic-buttons" name="button" title="About">About</button>
+		          <button onClick={() => this.clickedButton('Experience')} className="topic-buttons" name="button" title="Experience">Experience</button>
+		          <button onClick={() => this.clickedButton('Tools')} className="topic-buttons" name="button" title="Tools">Tools</button>
+		          <button onClick={() => this.clickedButton('Contact')} className="topic-buttons" name="button" title="Contact">Contact</button>
+		          <button onClick={() => this.clickedButton('About')} className="topic-buttons" name="button" title="About">About</button>
+		          {this.child()}
 		        </div>
 		      );
 		    }
@@ -107,7 +118,7 @@
 		  	render() {
 		  		return(
 		  			<div>
-		  				<h3>Contact Methods</h3>
+		  				<h3>Contact</h3>
 		  			</div>
 		  		)
 		  	}
