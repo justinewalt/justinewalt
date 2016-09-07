@@ -1,5 +1,9 @@
 body {
-	background-image: url("../Images/brushed_alu_@2X.png");
+	background-color: black;
+	background-image: url("../Images/hotdoggg.jpg");
+	background-repeat: repeat-y;
+	/*background-repeat: initial;*/
+	background-position: center;
 	font-family: Verdana, Geneva, sans-serif;
+	color: white;
 }
-
